@@ -3,16 +3,16 @@ package com.benjaminwicks.namehelper
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.RecyclerView
 import com.benjaminwicks.namehelper.dummy.DummyContent
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * An activity representing a list of People. This activity
@@ -39,7 +39,7 @@ class PersonListActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
 
-        setupRecyclerView(findViewById<RecyclerView>(R.id.person_list))
+        setupRecyclerView(findViewById(R.id.person_list))
 
         findViewById<View>(R.id.person_detail_container)?.let {
             isTwoPane = true
