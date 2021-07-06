@@ -86,14 +86,9 @@ class PersonListActivity : AppCompatActivity() {
         }
 
         inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-            val mIdView: TextView
-            val mContentView: TextView
+            val mIdView: TextView = mView.findViewById(R.id.id)
+            val mContentView: TextView = mView.findViewById(R.id.content)
             var mItem: DummyContent.DummyItem? = null
-
-            init {
-                mIdView = mView.findViewById(R.id.id)
-                mContentView = mView.findViewById(R.id.content)
-            }
 
             override fun toString(): String {
                 return super.toString() + " '${mContentView.text}'"
