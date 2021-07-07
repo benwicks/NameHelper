@@ -32,6 +32,8 @@ class PersonModifyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // todo how to show keyboard?
+
         viewModel.lookupPerson(args.personId).observe(viewLifecycleOwner, { person ->
             person?.let {
                 binding.etFirstName.setText(it.firstName)
