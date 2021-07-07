@@ -36,7 +36,10 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="personGivenName"
                 android:hint="@string/first_name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName">
+
+                <requestFocus />
+            </EditText>
 
             <EditText
                 android:id="@+id/et_last_name"

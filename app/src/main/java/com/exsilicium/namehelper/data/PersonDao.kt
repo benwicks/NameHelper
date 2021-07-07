@@ -1,6 +1,7 @@
 package com.exsilicium.namehelper.data
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -16,4 +17,7 @@ interface PersonDao {
 
     @Query("SELECT * FROM person")
     fun getAllPeople(): Flow<List<Person>>
+
+    @Delete
+    suspend fun deletePerson(person: Person)
 }
