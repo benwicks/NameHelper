@@ -13,6 +13,13 @@
         <action
             android:id="@+id/action_personListFragment_to_personDetailFragment"
             app:destination="@id/personDetailFragment" />
+        <action
+            android:id="@+id/action_personListFragment_to_personModifyFragment"
+            app:destination="@id/personModifyFragment" >
+            <argument
+                android:name="personId"
+                android:defaultValue="-1" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/personDetailFragment"
@@ -20,7 +27,19 @@
         android:label="person_detail_fragment"
         tools:layout="@layout/person_detail_fragment">
         <argument
-            android:name="id"
+            android:name="personId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_personDetailFragment_to_personModifyFragment"
+            app:destination="@id/personModifyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personModifyFragment"
+        android:name="com.exsilicium.namehelper.modify.PersonModifyFragment"
+        android:label="PersonModifyFragment" >
+        <argument
+            android:name="personId"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
 </navigation>
