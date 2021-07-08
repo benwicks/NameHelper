@@ -1,3 +1,2 @@
-Add transition animations.
-Automatically hide/show keyboard on Modify screen.
-And add date created/modified.
+Update add icon
+Show message when list is empty

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
@@ -12,19 +13,14 @@ import androidx.navigation.fragment.findNavController
 import com.exsilicium.namehelper.R
 import com.exsilicium.namehelper.databinding.PersonListFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PersonListFragment : Fragment() {
     private val viewModel: PersonListViewModel by viewModels()
     private var _binding: PersonListFragmentBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().lifecycle.coroutineScope.launchWhenCreated {
-            viewModel.getAllPeople()
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +37,9 @@ class PersonListFragment : Fragment() {
             findNavController().navigate(PersonListFragmentDirections.actionPersonListFragmentToPersonModifyFragment())
         }
         binding.personList.adapter = viewModel.adapter
+        viewLifecycleOwner.lifecycle.coroutineScope.launch {
+            viewModel.isEmpty().collect { binding.tvEmptyListGetStarted.isVisible = it }
+        }
     }
 
     override fun onDestroyView() {
