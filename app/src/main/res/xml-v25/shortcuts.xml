@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@android:drawable/ic_input_add"
+        android:shortcutId="new_name"
+        android:shortcutShortLabel="@string/add_name"
+        >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="namehelper://add_name"
+            android:targetClass="com.exsilicium.namehelper.NameHelperActivity"
+            android:targetPackage="com.exsilicium.namehelper" />
+    </shortcut>
+</shortcuts>

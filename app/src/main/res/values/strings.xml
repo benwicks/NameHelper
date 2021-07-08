@@ -12,4 +12,5 @@
     <string name="edit">Edit</string>
     <string name="date_created">Date Created</string>
     <string name="date_modified">Date Modified</string>
+    <string name="error_name_input_invalid">Please enter a valid name.</string>
 </resources>

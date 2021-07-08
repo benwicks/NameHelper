@@ -51,6 +51,8 @@
         android:label="PersonModifyFragment">
         <argument
             android:name="personId"
+            android:defaultValue="0"
             app:argType="integer" />
+        <deepLink app:uri="namehelper://add_name" />
     </fragment>
 </navigation>

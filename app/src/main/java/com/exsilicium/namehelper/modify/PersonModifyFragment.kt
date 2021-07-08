@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.exsilicium.namehelper.R
 import com.exsilicium.namehelper.databinding.PersonModifyFragmentBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -58,11 +59,20 @@ class PersonModifyFragment : Fragment() {
     }
 
     private fun savePerson() {
-        viewLifecycleOwner.lifecycleScope.launch { viewModel.save(binding) }.invokeOnCompletion {
-            hideKeyboard()
-            // TODO Replace to PersonDetailFragment screen (when adding) instead of popping to list?
-            findNavController().popBackStack()
-        }
+        viewLifecycleOwner.lifecycleScope.launch { viewModel.save(this, binding) }
+            .invokeOnCompletion { exception ->
+                if (exception?.cause is InvalidInputException) {
+                    Snackbar.make(
+                        binding.root,
+                        R.string.error_name_input_invalid,
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                } else {
+                    hideKeyboard()
+                    // TODO Replace to PersonDetailFragment screen (when adding) instead of popping to list?
+                    findNavController().popBackStack()
+                }
+            }
     }
 
     private fun showKeyboard() {
