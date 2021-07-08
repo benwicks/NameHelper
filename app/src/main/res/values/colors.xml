@@ -5,6 +5,9 @@
     <color name="colorPrimaryLight">#FFE0B2</color>
     <color name="colorAccent">#607D8B</color>
 
+    <color name="colorSecondary">#FF9800</color>
+    <color name="colorSecondaryDark">#F57C00</color>
+
     <color name="colorOnSurface">#212121</color>
     <color name="secondary_text">#757575</color>
     <color name="icons">#212121</color>
