@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.exsilicium.namehelper.data.Person
 import com.exsilicium.namehelper.databinding.PersonListContentBinding
 
-// todo implement DiffUtil when adding/editing/deleting list items (https://developer.android.com/codelabs/kotlin-android-training-diffutil-databinding#3)
 class PersonRecyclerViewAdapter :
     ListAdapter<Person, PersonRecyclerViewAdapter.ViewHolder>(PersonDiffCallback()) {
 
@@ -25,14 +24,14 @@ class PersonRecyclerViewAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.mItem = currentList[position]
-        holder.mIdView.text = currentList[position].id.toString()
-        holder.mContentView.text = currentList[position].getName()
+        holder.person = currentList[position]
+        holder.tvId.text = currentList[position].id.toString()
+        holder.tvName.text = currentList[position].getName()
 
-        holder.itemView.setOnClickListener { v ->
-            v.findNavController().navigate(
+        holder.itemView.setOnClickListener {
+            it.findNavController().navigate(
                 PersonListFragmentDirections.actionPersonListFragmentToPersonDetailFragment(
-                    holder.mItem!!.id
+                    holder.person.id
                 )
             )
         }
@@ -40,12 +39,12 @@ class PersonRecyclerViewAdapter :
 
     inner class ViewHolder(binding: PersonListContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val mIdView: TextView = binding.id
-        val mContentView: TextView = binding.content
-        var mItem: Person? = null
+        val tvId: TextView = binding.id
+        val tvName: TextView = binding.content
+        lateinit var person: Person
 
         override fun toString(): String {
-            return super.toString() + " '${mContentView.text}'"
+            return super.toString() + " '${tvName.text}'"
         }
     }
 

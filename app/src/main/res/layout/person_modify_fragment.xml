@@ -36,9 +36,9 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="personGivenName"
                 android:hint="@string/first_name"
-                android:inputType="textPersonName">
+                android:inputType="textPersonName|textCapWords">
 
-                <requestFocus />
+<!--                <requestFocus />-->
             </EditText>
 
             <EditText
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="personFamilyName"
                 android:hint="@string/last_name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName|textCapWords" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

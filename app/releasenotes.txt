@@ -1,2 +1,3 @@
-Fixed action bar title on person details.
-Still working on using DiffUtil for CRUD operations on names list.
+Add transition animations.
+Automatically hide/show keyboard on Modify screen.
+And add date created/modified.

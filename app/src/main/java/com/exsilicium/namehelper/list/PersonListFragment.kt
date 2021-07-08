@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.findNavController
 import com.exsilicium.namehelper.R
 import com.exsilicium.namehelper.databinding.PersonListFragmentBinding
@@ -18,28 +19,28 @@ class PersonListFragment : Fragment() {
     private var _binding: PersonListFragmentBinding? = null
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().lifecycle.coroutineScope.launchWhenCreated {
+            viewModel.getAllPeople()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (requireActivity() as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
         _binding = PersonListFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as AppCompatActivity).supportActionBar?.setTitle(R.string.app_name)
-
         binding.fab.setOnClickListener {
             findNavController().navigate(PersonListFragmentDirections.actionPersonListFragmentToPersonModifyFragment())
         }
-
-        val adapter = PersonRecyclerViewAdapter() // todo how to retain this after moving to other screen?
-        binding.personList.adapter = adapter
-
-        viewModel.getAllPeople().observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+        binding.personList.adapter = viewModel.adapter
     }
 
     override fun onDestroyView() {
