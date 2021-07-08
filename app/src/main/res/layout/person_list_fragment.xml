@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1">
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/person_list"
+        android:name="com.exsilicium.namehelper.PersonListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
+        android:clipToPadding="false"
+        android:paddingBottom="48dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="com.exsilicium.namehelper.NameHelperActivity"
+        tools:listitem="@layout/person_list_content"
+        />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/person_list"
-            android:name="com.exsilicium.namehelper.PersonListFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingBottom="48dp"
-            app:layoutManager="LinearLayoutManager"
-            tools:context="com.exsilicium.namehelper.NameHelperActivity"
-            tools:listitem="@layout/person_list_content"
-            />
-    </FrameLayout>
+    <TextView
+        android:id="@+id/tv_empty_list_get_started"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/empty_list_get_started"
+        android:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -37,6 +36,6 @@
         android:tint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
+        app:srcCompat="@drawable/ic_add"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

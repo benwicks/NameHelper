@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@drawable/ic_add"
         android:shortcutId="new_name"
         android:shortcutShortLabel="@string/add_name"
         >
