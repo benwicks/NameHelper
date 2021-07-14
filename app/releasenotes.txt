@@ -1,2 +1,2 @@
-Update add icon
-Show message when list is empty
+Consolidate name to one field and add notes field.
+Use paging library.

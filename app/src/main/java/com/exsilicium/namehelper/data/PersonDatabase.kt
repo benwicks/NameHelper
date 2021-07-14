@@ -11,6 +11,7 @@ import androidx.room.TypeConverters
     entities = [
         Person::class
     ],
+
 )
 @TypeConverters(Converters::class)
 abstract class PersonDatabase : RoomDatabase() {

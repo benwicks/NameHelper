@@ -46,13 +46,13 @@ class PersonModifyFragment : Fragment() {
         viewModel.lookupPerson().observe(viewLifecycleOwner) { person ->
             if (person == null) {
                 (requireActivity() as AppCompatActivity).supportActionBar?.setTitle(R.string.add_person)
-                binding.etFirstName.requestFocus()
+                binding.etName.requestFocus()
                 showKeyboard()
             } else {
                 (requireActivity() as AppCompatActivity).supportActionBar?.title =
-                    getString(R.string.edit_person_format, person.getName())
-                binding.etFirstName.setText(person.firstName)
-                binding.etLastName.setText(person.lastName)
+                    getString(R.string.edit_person_format, person.name)
+                binding.etName.setText(person.name)
+                binding.etNotes.setText(person.notes)
             }
         }
         binding.btnSave.setOnClickListener { savePerson() }
@@ -76,13 +76,13 @@ class PersonModifyFragment : Fragment() {
     }
 
     private fun showKeyboard() {
-//        getWindowInsetsController(binding.root)?.show(WindowInsetsCompat.Type.ime())
-        val inputMethodManager =
-            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.toggleSoftInput(
-            InputMethodManager.SHOW_FORCED,
-            InputMethodManager.HIDE_IMPLICIT_ONLY
-        )
+        getWindowInsetsController(binding.root)?.show(WindowInsetsCompat.Type.ime())
+//        val inputMethodManager =
+//            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        inputMethodManager.toggleSoftInput(
+//            InputMethodManager.SHOW_FORCED,
+//            InputMethodManager.HIDE_IMPLICIT_ONLY
+//        )
     }
 
     private fun hideKeyboard() {
