@@ -27,11 +27,35 @@ class PersonRecyclerViewAdapter :
         holder.bindTo(getItem(position))
     }
 
+    fun isUndoOn(): Boolean {
+        return false // TODO see https://github.com/nemanja-kovacevic/recycler-view-swipe-to-delete/blob/master/app/src/main/java/net/nemanjakovacevic/recyclerviewswipetodelete/MainActivity.java#L333
+    }
+
+    fun isPendingRemoval(position: Int): Boolean {
+        return false // TODO see https://github.com/nemanja-kovacevic/recycler-view-swipe-to-delete/blob/master/app/src/main/java/net/nemanjakovacevic/recyclerviewswipetodelete/MainActivity.java#L366
+    }
+
+//    fun pendingRemoval(swipedPosition: Int) {
+//        TODO("Not yet implemented") // TODO See https://github.com/nemanja-kovacevic/recycler-view-swipe-to-delete/blob/master/app/src/main/java/net/nemanjakovacevic/recyclerviewswipetodelete/MainActivity.java#L337
+//    }
+//
+//    fun remove(swipedPosition: Int) {
+////        val item = items.get(position)
+////        if (items.contains(item)) {
+////            items.remove(position)
+////            notifyItemRemoved(position)
+////        }
+//    }
+
     inner class ViewHolder(binding: PersonListContentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val tvId: TextView = binding.id
         private val tvName: TextView = binding.content
         var person: Person? = null
+
+        init {
+            binding.root.tag = person?.id
+        }
 
         override fun toString(): String {
             return super.toString() + " '${tvName.text}'"
@@ -42,6 +66,7 @@ class PersonRecyclerViewAdapter :
             val personId = person?.id
             tvId.text = personId.toString()
             tvName.text = person?.name
+            itemView.tag = personId
 
             itemView.setOnClickListener {
                 personId?.let { personId ->

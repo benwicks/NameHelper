@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PersonListViewModel @Inject constructor(
-    personDao: PersonDao
+    private val personDao: PersonDao
 ) : ViewModel() {
     val adapter = PersonRecyclerViewAdapter()
 
@@ -37,4 +37,8 @@ class PersonListViewModel @Inject constructor(
     }
 
     fun isEmpty() = isEmpty.map { it == 0 }.distinctUntilChanged()
+
+    suspend fun remove(personId: Int) {
+        personDao.deletePersonById(personId)
+    }
 }
