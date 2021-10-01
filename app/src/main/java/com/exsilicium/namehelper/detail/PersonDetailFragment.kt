@@ -48,8 +48,7 @@ class PersonDetailFragment : Fragment() {
         viewLifecycleOwner.lifecycle.coroutineScope.launch {
             viewModel.lookupPerson().collect { person ->
                 if (person != null) {
-                    (requireActivity() as AppCompatActivity).supportActionBar?.title =
-                        person.getName()
+                    (requireActivity() as AppCompatActivity).supportActionBar?.title = person.name
                     binding.tvDateCreated.setText(
                         person.createdTime.toString(),
                         BufferType.NORMAL
@@ -58,6 +57,7 @@ class PersonDetailFragment : Fragment() {
                         person.lastModifiedTime.toString(),
                         BufferType.NORMAL
                     )
+                    binding.tvNotes.setText(person.notes)
                 }
             }
         }

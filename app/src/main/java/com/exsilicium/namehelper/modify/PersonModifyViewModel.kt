@@ -26,20 +26,20 @@ class PersonModifyViewModel @Inject constructor(
     }
 
     suspend fun save(coroutineScope: CoroutineScope, binding: PersonModifyFragmentBinding) {
-        val firstName = binding.etFirstName.text.toString()
-        val lastName = binding.etLastName.text.toString()
-        if (!isInputValid(firstName, lastName)) {
+        val name = binding.etName.text.toString()
+        val notes = binding.etNotes.text.toString()
+        if (!isInputValid(name)) {
             coroutineScope.cancel("Invalid Input", InvalidInputException())
             return
         }
 
         person = if (person == null) {
-            Person(firstName, lastName, personId)
+            Person(name, notes, personId)
         } else {
             person?.copy(
-                firstName = firstName,
-                lastName = lastName,
-                lastModifiedTime = Instant.now()
+                name = name,
+                notes = notes,
+                lastModifiedTime = Instant.now(),
             )
         }
         person?.let { it ->
@@ -61,8 +61,8 @@ class PersonModifyViewModel @Inject constructor(
 
     companion object {
         @VisibleForTesting
-        fun isInputValid(firstName: String, lastName: String): Boolean {
-            return firstName.isNotBlank() || lastName.isNotBlank()
+        fun isInputValid(firstName: String): Boolean {
+            return firstName.isNotBlank()
         }
     }
 }

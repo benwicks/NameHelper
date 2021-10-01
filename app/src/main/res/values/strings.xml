@@ -3,8 +3,8 @@
     <string name="title_person_detail">Person Detail</string>
     <string name="add_name">Add Name</string>
     <string name="update_details">Update Details</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
+    <string name="name">Name</string>
+    <string name="notes">Notes</string>
     <string name="save_person">Save Person</string>
     <string name="delete">Delete</string>
     <string name="edit_person_format">Edit %s</string>
@@ -13,5 +13,5 @@
     <string name="date_created">Date Created</string>
     <string name="date_modified">Date Modified</string>
     <string name="error_name_input_invalid">Please enter a valid name.</string>
-    <string name="empty_list_get_started">Get started by adding your first name.</string>
+    <string name="empty_list_get_started">Get started by adding a person\'s name.</string>
 </resources>

@@ -35,4 +35,19 @@
             android:enabled="false"
             tools:text="Today" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/notes"
+        android:padding="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:lines="3"
+            tools:text="My Notes..." />
+    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

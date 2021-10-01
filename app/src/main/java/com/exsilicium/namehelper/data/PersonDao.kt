@@ -1,5 +1,7 @@
 package com.exsilicium.namehelper.data
 
+
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -20,8 +22,14 @@ interface PersonDao {
     fun getPerson(id: Int): Flow<Person>
 
     @Query("SELECT * FROM person")
-    fun getAllPeople(): Flow<List<Person>>
+    fun getAllPeople(): PagingSource<Int, Person>
+
+    @Query("SELECT COUNT(id) FROM person")
+    fun getPeopleCount(): Flow<Int>
 
     @Delete
     suspend fun deletePerson(person: Person)
+
+    @Query("DELETE FROM person WHERE id = :personId")
+    suspend fun deletePersonById(personId: Int)
 }
