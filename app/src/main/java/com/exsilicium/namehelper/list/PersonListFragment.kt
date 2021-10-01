@@ -139,8 +139,7 @@ class PersonListFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        super.
-      ()
+        super.onDestroyView()
         _binding = null
     }
 }
