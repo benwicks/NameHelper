@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.Instant
 
+
 @Entity
 data class Person(
     @ColumnInfo(name = "name") val name: String?,
