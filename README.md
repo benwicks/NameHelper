@@ -3,7 +3,7 @@
 This app allows you to record names of people you meet. You can also record notes you learn about that person. It is an aid to remember
 names easier.
 
-![Flow through NameHelper app](demo.gif | width=100)
+<img src="demo.gif" alt="Flow through NameHelper app" width="100"/>
 
 It uses [Room](https://developer.android.com/training/data-storage/room/) for data persistence.
 
