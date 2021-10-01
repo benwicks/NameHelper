@@ -1,6 +1,5 @@
 package com.exsilicium.namehelper
 
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
@@ -9,7 +8,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class NameHelperActivity : AppCompatActivity() {
-
     private lateinit var binding: FragmentNavHostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

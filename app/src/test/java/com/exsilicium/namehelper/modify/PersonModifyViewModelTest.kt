@@ -10,7 +10,7 @@ internal class PersonModifyViewModelTest {
     fun inputIsInvalid() {
         assertFalse(
             "Expected empty name strings to be invalid.",
-            PersonModifyViewModel.isInputValid("", "")
+            PersonModifyViewModel.isInputValid("")
         )
     }
 
@@ -18,7 +18,7 @@ internal class PersonModifyViewModelTest {
     fun inputIsValid() {
         assertTrue(
             "Expected non-empty name strings to be valid.",
-            PersonModifyViewModel.isInputValid("John", "Doe")
+            PersonModifyViewModel.isInputValid("John Doe")
         )
     }
 }

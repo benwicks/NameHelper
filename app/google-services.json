@@ -1,8 +1,8 @@
 {
   "project_info": {
-    "project_number": "782286585625",
-    "project_id": "name-helper",
-    "storage_bucket": "name-helper.appspot.com"
+    "project_number": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
@@ -14,20 +14,20 @@
       },
       "oauth_client": [
         {
-          "client_id": "782286585625-vjgql1b5alo8k9ge1hevt4p8u935vdb8.apps.googleusercontent.com",
+          "client_id": "x.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCS76K8AdXTLT1SJP7c42WR80E6BzeZiKI"
+          "current_key": "x"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "782286585625-vjgql1b5alo8k9ge1hevt4p8u935vdb8.apps.googleusercontent.com",
+              "client_id": "x.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
