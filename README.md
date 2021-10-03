@@ -5,8 +5,7 @@ names easier.
 
 <img src="demo.gif" alt="Flow through NameHelper app" width="100"/>
 
-It uses [Room](https://developer.android.com/training/data-storage/room/) for data persistence.
-
-It uses [Jetpack Navigation](https://developer.android.com/guide/navigation/) for navigation between screens.
-
-It uses [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection.
+It uses:
+- [Room](https://developer.android.com/training/data-storage/room/) for data persistence.
+- [Jetpack Navigation](https://developer.android.com/guide/navigation/) for navigation between screens.
+- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection.
